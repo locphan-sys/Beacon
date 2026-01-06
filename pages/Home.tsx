@@ -283,7 +283,7 @@ const Home: React.FC = () => {
 
             <div className="p-8 md:p-12 text-center bg-white border-b border-gray-100">
                <p className="text-secondary-light max-w-4xl mx-auto leading-relaxed font-sans mb-10 text-lg md:text-xl font-medium italic">
-                Trở thành công dân châu Âu with gói đầu tư từ <strong className="text-primary">400,000 EUR</strong>.
+                Trở thành công dân châu Âu với gói đầu tư từ <strong className="text-primary">400,000 EUR</strong>.
                </p>
                <h2 className="text-4xl md:text-5xl font-display font-black text-secondary tracking-widest uppercase mb-12 border-b-2 border-primary inline-block pb-4">
                  ƯU ĐIỂM NỔI BẬT
@@ -452,7 +452,7 @@ const Home: React.FC = () => {
                     { step: "1", title: "Thẩm định & Ký kết", desc: "Thẩm định hồ sơ & Ký hợp đồng dịch vụ" },
                     { step: "2", title: "Nộp đơn I-140", desc: "Nộp đơn I-140 vào USCIS & Nhận chấp thuận" },
                     { step: "3", title: "Tiếp nhận hồ sơ", desc: "Beacon Immigration tiếp nhận và xử lý đơn" },
-                    { step: "4", title: "Phỏng vấn LSQ", desc: "Phỏng vấn tại Lãnh Sứ Quán & Nhận visa" },
+                    { step: "4", title: "Phỏng vấn LSQ", desc: "Phỏng vấn tại Lãnh Sự Quán & Nhận visa" },
                     { step: "5", title: "Sang định cư", desc: "Sang định cư Mỹ với Thẻ Xanh vĩnh viễn" },
                   ].map((item, idx) => (
                     <div key={idx} className="relative group">
@@ -745,17 +745,18 @@ const Home: React.FC = () => {
           
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
               {[
-            {
-                  name: "Ms HUYEN TRUONG (HUMI)",
-                  role: "GIÁM ĐỐC BEACON IMMIGRATION",
-                  image:
-                    "https://i.ibb.co/sJgMhf2N/506253836-10235999942596015-2304511236105444107-n.jpg",
-                },
+     
                 {
                   name: "Ms PHUONG LE (LUCY)",
                   role: "TRỢ LÝ THỦ TỤC HỒ SƠ",
                   image:
                     "https://i.ibb.co/5HY3LvR/4.png",
+                },
+                       {
+                  name: "Ms HUYEN TRUONG (HUMI)",
+                  role: "GIÁM ĐỐC BEACON IMMIGRATION",
+                  image:
+                    "https://i.ibb.co/sJgMhf2N/506253836-10235999942596015-2304511236105444107-n.jpg",
                 },
                   {
                   name: "Mr LOC PHAN (Sheng Lu)",

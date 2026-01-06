@@ -122,25 +122,27 @@ const About: React.FC = () => {
                             {
                 title: "ĐỊNH CƯ MỸ",
                 items: [
-                  "Định cư diện Việc làm Unskilled",
-                  "Visa E2/L1 - Diện đầu tư",
-                  "Chính sách hoàn phí hấp dẫn",
+                  "Mỹ (Visa EB1A/EB3/EB2/EB5/L1)",
+                  "Canada (Visa Startup/Visa lao động, Đầu tư quốc tịch)",
+                  "Vùng Caribe (Đầu tư quốc tịch)",
                 ],
               },
               {
                 title: "ĐỊNH CƯ ÂU",
                 items: [
-                  "Tư vấn visa đầu tư 188",
-                  "Tư vấn visa tay nghề 190",
-                  "Cấp chứng chỉ nghề Úc RPL",
+               "Pháp (Visa Tài năng, Đầu tư quốc tịch)",
+ "Ý (Đầu tư quốc tịch)",
+"Slovenia (Đầu tư quốc tịch)",
+"Cộng hòa Séc (Đầu tư quốc tịch)", 
+"Romania (Đầu tư quốc tịch)",
+"Malta (Thẻ thường trú nhân)",
                 ],
               },
               {
                 title: "ĐỊNH CƯ Á",
                 items: [
-                  "Diện lao động",
-                  "Diện đầu tư - thành lập công ty",
-                  "Diện bất động sản",
+                  "Nhật (Visa lao động, Đầu tư quốc tịch)",
+                  "Malaysia (Visa lao động, Đầu tư quốc tịch)",
                 ],
               },
             ].map((box, idx) => (
@@ -151,7 +153,7 @@ const About: React.FC = () => {
                 <h4 className="font-display text-xl font-bold text-text-main mb-4">
                   {box.title}
                 </h4>
-                <ul className="space-y-2 text-[#8a8060] font-sans text-sm list-disc list-inside">
+                <ul className="space-y-2 text-[#8a8060] font-sans text-sm list-disc list-outside pl-5">
                   {box.items.map((li, i) => (
                     <li key={i}>{li}</li>
                   ))}

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { LanguageProvider, useLanguage } from "./contexts/LanguageContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -9,6 +10,7 @@ import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
+import USImmigration from "./pages/USImmigration";
 
 // ScrollToTop component to ensure page starts at top on navigation
 const ScrollToTop = () => {
@@ -21,14 +23,15 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const { t } = useLanguage();
 
   const openModal = () => setIsConsultationModalOpen(true);
   const closeModal = () => setIsConsultationModalOpen(false);
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -40,6 +43,7 @@ const App: React.FC = () => {
             <Route path="/news/:id" element={<NewsDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/programs/us" element={<USImmigration />} />
           </Routes>
         </main>
         <Footer onOpenConsultation={openModal} />
@@ -65,21 +69,21 @@ const App: React.FC = () => {
               <div className="p-8 md:p-12">
                 <div className="text-center mb-10">
                   <h2 className="font-display text-2xl font-black text-secondary uppercase tracking-[0.2em] mb-2">
-                    Đăng Ký Tư Vấn
+                    {t.common.contact}
                   </h2>
                   <div className="w-16 h-1 bg-primary mx-auto"></div>
                   <p className="text-gray-500 text-sm font-sans mt-4">
-                    Để lại thông tin, chuyên gia sẽ liên hệ bạn ngay.
+                    {t.header.topBarText}
                   </p>
                 </div>
 
-                <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert('Cảm ơn bạn đã để lại thông tin! Chúng tôi sẽ liên hệ lại sớm nhất.'); closeModal(); }}>
+                <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert(t.common.success); closeModal(); }}>
                   <div className="space-y-4">
                     <div className="relative">
                       <input
                         required
                         type="text"
-                        placeholder="Họ tên của bạn"
+                        placeholder={t.common.namePlaceholder}
                         className="w-full p-4 pl-12 bg-gray-50 border border-gray-200 focus:border-primary focus:bg-white outline-none transition rounded-xl font-sans text-sm"
                       />
                       <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">person</span>
@@ -89,7 +93,7 @@ const App: React.FC = () => {
                       <input
                         required
                         type="email"
-                        placeholder="Email liên hệ"
+                        placeholder={t.common.emailPlaceholder}
                         className="w-full p-4 pl-12 bg-gray-50 border border-gray-200 focus:border-primary focus:bg-white outline-none transition rounded-xl font-sans text-sm"
                       />
                       <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">mail</span>
@@ -99,7 +103,7 @@ const App: React.FC = () => {
                       <input
                         required
                         type="tel"
-                        placeholder="Số điện thoại"
+                        placeholder={t.common.phonePlaceholder}
                         className="w-full p-4 pl-12 bg-gray-50 border border-gray-200 focus:border-primary focus:bg-white outline-none transition rounded-xl font-sans text-sm"
                       />
                       <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">call</span>
@@ -107,10 +111,10 @@ const App: React.FC = () => {
 
                     <div className="relative">
                       <select required className="w-full p-4 pl-12 bg-gray-50 border border-gray-200 text-gray-500 focus:border-primary focus:bg-white outline-none transition rounded-xl font-sans text-sm appearance-none">
-                        <option value="">— Quan tâm chương trình —</option>
-                        <option>Định cư Châu Mỹ</option>
-                        <option>Định cư Châu Âu</option>
-                        <option>Định cư Châu Á</option>
+                        <option value="">{t.common.programInterest}</option>
+                        <option>Europe</option>
+                        <option>USA / Canada</option>
+                        <option>Asia</option>
                       </select>
                       <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">flag</span>
                       <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">expand_more</span>
@@ -121,11 +125,11 @@ const App: React.FC = () => {
                     type="submit"
                     className="w-full bg-primary text-secondary font-black py-5 hover:bg-secondary hover:text-white transition-all duration-300 tracking-[0.3em] uppercase shadow-xl rounded-xl mt-6 text-sm"
                   >
-                    Gửi Yêu Cầu Ngay
+                    {t.common.submit}
                   </button>
                   
                   <p className="text-[10px] text-center text-gray-400 uppercase tracking-widest mt-4">
-                    Bảo mật thông tin tuyệt đối bởi Beacon Immigration
+                    {t.common.secureInfo}
                   </p>
                 </form>
               </div>
@@ -133,7 +137,17 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
-    </Router>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </LanguageProvider>
   );
 };
 

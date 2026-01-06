@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
   const serviceData = [
     {
       name: "Định cư Châu Âu",
-      items: ["Pháp", "Ý", "Slovenia", "Séc", "Bồ Đào Nha", "Malta", "Romania"],
+      items: ["Pháp", "Ý", "Slovenia", "Séc", "Malta", "Romania"],
     },
     {
       name: "Định cư Châu Mỹ",
@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
     },
     {
       name: "Định cư Châu Á",
-      items: ["Nhật"],
+      items: ["Nhật", "Malaysia"],
     },
   ];
 

@@ -18,15 +18,16 @@ const Contact: React.FC = () => {
   }, [showContactModal]);
 
   const teamMembers = [
-    {
-      name: "Ms HUYEN TRUONG (HUMI)",
-      role: "GIÁM ĐỐC BEACON IMMIGRATION",
-      image: "https://i.ibb.co/sJgMhf2N/506253836-10235999942596015-2304511236105444107-n.jpg",
-    },
+ 
     {
       name: "Ms PHUONG LE (LUCY)",
       role: "TRỢ LÝ THỦ TỤC HỒ SƠ",
       image: "https://i.ibb.co/5HY3LvR/4.png",
+    },
+       {
+      name: "Ms HUYEN TRUONG (HUMI)",
+      role: "GIÁM ĐỐC BEACON IMMIGRATION",
+      image: "https://i.ibb.co/sJgMhf2N/506253836-10235999942596015-2304511236105444107-n.jpg",
     },
     {
       name: "Mr LOC PHAN (Sheng Lu)",
